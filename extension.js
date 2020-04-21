@@ -356,7 +356,7 @@ const Indicator = new Lang.Class({
     options: {
         updateInterval: INDICATOR_UPDATE_INTERVAL,
         barPadding: 1,
-        barWidth: 6,
+        barWidth: 5,
         gridColor: 'grid-color'
     },
 
@@ -969,9 +969,9 @@ const SwapIndicator = new Lang.Class({
         let swap_ttl_text = "%s".format(this.swap.used.formatMetricPretty('B'));
         this.current_swap_value.set_text(swap_ttl_text);
 
-        if (t > 0.5) {
+        if (t > 0.05) {
             this.stats['swap-used'].color = "swap-used-bad-color";
-        } else if (t > 0.25) {
+        } else if (t > 0.01) {
             this.stats['swap-used'].color = "swap-used-warn-color";
         } else {
             this.stats['swap-used'].color = "swap-used-color";
